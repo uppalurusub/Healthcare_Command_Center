@@ -1,5 +1,6 @@
 // src/models/commandCenterRequest.ts
 
+
 export interface FinancialMetrics {
   monthly_revenue: number;
   operating_cost: number;
