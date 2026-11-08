@@ -1,8 +1,9 @@
-from utils.logger import logger
+
 
 from autogen_agentchat.agents import AssistantAgent
 
-from config.llm_config import get_model_client
+from app.config.settings import settings
+logger = settings.get_logger()
 
 
 def get_compliance_agent() -> AssistantAgent:
@@ -167,7 +168,7 @@ Focus on:
 
         agent = AssistantAgent(
             name="ComplianceAgent",
-            model_client=get_model_client(),
+            model_client=settings.get_model_client(),
             system_message=system_prompt,
             description="""
             Chief Compliance Officer responsible for

@@ -1,9 +1,10 @@
 from datetime import datetime
 from fastapi import APIRouter, HTTPException
-from utils.logger import logger
+from app.config.settings import settings
+logger = settings.get_logger()
 
-from models.request_model import CommandCenterRequest
-from services.command_center_service import CommandCenterService
+from app.schemas.request_model import CommandCenterRequest
+from app.services.command_center_service import CommandCenterService
 
 router = APIRouter(
     prefix="/command-center",

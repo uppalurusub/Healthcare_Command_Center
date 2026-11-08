@@ -1,8 +1,7 @@
-from utils.logger import logger
-
 from autogen_agentchat.agents import AssistantAgent
 
-from config.llm_config import get_model_client
+from app.config.settings import settings
+logger = settings.get_logger()
 
 
 def get_executive_agent() -> AssistantAgent:
@@ -72,7 +71,7 @@ Always provide executive-level healthcare governance guidance.
 
         agent = AssistantAgent(
             name="ExecutiveAgent",
-            model_client=get_model_client(),
+            model_client=settings.get_model_client(),
             system_message=system_prompt
         )
 

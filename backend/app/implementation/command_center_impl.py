@@ -1,19 +1,20 @@
 from datetime import datetime, timedelta
 import uuid
 
-from utils.logger import logger
+from app.config.settings import settings
+logger = settings.get_logger()
 
 from autogen_agentchat.messages import TextMessage
 
-from agents.healthcare_team import (
+from app.agents.healthcare_team import (
     build_healthcare_team
 )
 
-from models.request_model import (
+from app.schemas.request_model import (
     CommandCenterRequest
 )
 
-from models.response_model import (
+from app.schemas.response_model import (
     CommandCenterResponse,
     ExecutiveDashboard,
     GovernanceKPI,

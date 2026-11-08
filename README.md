@@ -1,46 +1,167 @@
 # 🏥 Autonomous Healthcare Command Center
 
-> AI-Powered Multi-Agent Healthcare Governance & Executive Decision Support Platform
+> Enterprise Multi-Agent Healthcare Governance Platform built using **AutoGen 0.7.5**, **FastAPI**, and **Python**.
 
-The **Autonomous Healthcare Command Center** is an enterprise-grade AI application that analyzes hospital operational, clinical, financial, quality, and compliance data using a team of specialized AI agents.
-
-The platform combines a **FastAPI backend** powered by **AutoGen Multi-Agent AI** with a modern **React TypeScript frontend** to provide executive-level healthcare governance recommendations and strategic insights.
+The Autonomous Healthcare Command Center is an AI-powered executive governance platform that leverages multiple specialized AI agents to analyze hospital-wide operational, financial, clinical, quality, and compliance metrics. It provides hospital leadership with actionable recommendations, governance insights, strategic priorities, risk assessments, and executive dashboards.
 
 ---
 
 # Architecture
 
 ```
-                +-----------------------------+
-                |    React TypeScript UI      |
-                |        (Vite + Axios)       |
-                +--------------+--------------+
-                               |
-                               |
-                      REST API Calls
-                               |
-                               ▼
-               +-------------------------------+
-               |         FastAPI Backend        |
-               +-------------------------------+
-                               |
-                     Command Center Service
-                               |
-          +---------+----------+-----------+
-          |         |          |           |
-          ▼         ▼          ▼           ▼
- Executive  Financial  Clinical  Operations
-   Agent      Agent      Agent      Agent
-
-          ▼
-      Quality Agent
-
-          ▼
-    Compliance Agent
-
-          ▼
-     Final Governance Report
+                        Hospital Metrics
+                              │
+                              ▼
+                     FastAPI REST API
+                              │
+                              ▼
+                   Command Center Service
+                              │
+                              ▼
+              Command Center Implementation
+                              │
+                              ▼
+               AutoGen Multi-Agent Team
+ ┌────────────────────────────────────────────────────┐
+ │ Executive Agent                                    │
+ │ Financial Agent                                    │
+ │ Clinical Agent                                     │
+ │ Operations Agent                                   │
+ │ Quality Agent                                      │
+ │ Compliance Agent                                   │
+ └────────────────────────────────────────────────────┘
+                              │
+                              ▼
+               Governance Recommendations
+                              │
+                              ▼
+                   Executive Dashboard
 ```
+
+---
+
+# Features
+
+- Enterprise Multi-Agent AI Architecture
+- AutoGen 0.7.5 Agent Collaboration
+- Hospital Executive Decision Support
+- Governance KPI Analysis
+- Financial Performance Evaluation
+- Clinical Outcome Assessment
+- Operational Efficiency Analysis
+- Quality & Patient Safety Monitoring
+- Regulatory Compliance Review
+- Strategic Action Plan Generation
+- Executive Dashboard Response
+- FastAPI REST API
+- Structured Logging using Loguru
+- MLflow integration ready
+- Modular Project Structure
+
+---
+
+# AI Agents
+
+## Executive Agent
+
+Responsible for:
+
+- Executive Summary
+- Strategic Planning
+- Governance Recommendations
+- Board-Level Insights
+- Enterprise Priorities
+
+---
+
+## Financial Agent
+
+Analyzes:
+
+- Revenue
+- Operating Cost
+- Profit Margin
+- Accounts Receivable
+- Claim Denial Rate
+- Reimbursement Performance
+
+Produces:
+
+- Financial Risks
+- Revenue Opportunities
+- Cost Optimization Recommendations
+
+---
+
+## Clinical Agent
+
+Analyzes:
+
+- Admissions
+- Discharges
+- Mortality
+- Readmission
+- ICU Occupancy
+- Length of Stay
+
+Produces:
+
+- Clinical Risks
+- Care Quality Insights
+- Patient Outcome Recommendations
+
+---
+
+## Operations Agent
+
+Analyzes:
+
+- Bed Occupancy
+- Staff Utilization
+- Physician Utilization
+- Nurse-to-Patient Ratio
+- Operating Room Utilization
+- Waiting Time
+
+Produces:
+
+- Operational Bottlenecks
+- Capacity Planning
+- Workforce Optimization
+
+---
+
+## Quality Agent
+
+Monitors:
+
+- Patient Satisfaction
+- Infection Rate
+- Medication Errors
+- Falls
+- Overall Quality Score
+
+Produces:
+
+- Quality Improvement Recommendations
+- Patient Safety Alerts
+
+---
+
+## Compliance Agent
+
+Evaluates:
+
+- Compliance Score
+- HIPAA Violations
+- Audit Findings
+- Regulatory Risks
+
+Produces:
+
+- Compliance Alerts
+- Regulatory Recommendations
+- Governance Risks
 
 ---
 
@@ -49,8 +170,7 @@ The platform combines a **FastAPI backend** powered by **AutoGen Multi-Agent AI*
 ```
 Healthcare_Command_Center/
 │
-├── backend/
-│   ├── healthcare-commmand-center-python-app/
+├── app/
 │   │
 │   ├── agents/
 │   │      executive_agent.py
@@ -62,181 +182,58 @@ Healthcare_Command_Center/
 │   │      healthcare_team.py
 │   │
 │   ├── config/
+│   │      llm_config.py
+│   │      llm_models_config.py
+│   │
 │   ├── implementation/
+│   │      command_center_impl.py
+│   │
 │   ├── models/
+│   │      request_model.py
+│   │      response_model.py
+│   │
 │   ├── routers/
+│   │      command_center_router.py
+│   │
 │   ├── services/
+│   │      command_center_service.py
+│   │
 │   ├── utils/
-│   ├── logs/
+│   │      logger.py
+│   │      json_utils.py
+│   │      prompt_templates.py
+│   │
 │   └── main.py
 │
-├── ui/
-│   └── reactjs/
-│       └── healthcare-commmand-center-react-app/
-│           ├── src/
-│           │
-│           ├── api/
-│           ├── components/
-│           ├── hooks/
-│           ├── layouts/
-│           ├── models/
-│           ├── pages/
-│           ├── services/
-│           ├── styles/
-│           └── utils/
-│
+├── logs/
 ├── requirements.txt
+├── execute_request.json
 └── README.md
 ```
 
 ---
 
-# Key Features
-
-- Multi-Agent AI Decision System
-- Executive Governance Dashboard
-- Financial Performance Analysis
-- Clinical Operations Assessment
-- Operational Efficiency Review
-- Quality & Patient Safety Evaluation
-- Compliance & Regulatory Monitoring
-- Strategic Recommendations
-- AI Generated Executive Reports
-- REST API Integration
-- Responsive React Dashboard
-
----
-
-# AI Agents
-
-## Executive Agent
-
-Responsible for:
-
-- Executive summary
-- Strategic priorities
-- Hospital performance overview
-- Governance recommendations
-
----
-
-## Financial Agent
-
-Analyzes:
-
-- Revenue
-- Operating Cost
-- Profit Margin
-- Claims
-- Accounts Receivable
-- Reimbursement
-
-Produces:
-
-- Financial health assessment
-- Revenue optimization recommendations
-
----
-
-## Clinical Agent
-
-Analyzes:
-
-- Admissions
-- Discharges
-- Mortality
-- Readmissions
-- ICU Occupancy
-- Length of Stay
-
-Provides:
-
-- Clinical performance insights
-- Patient outcome recommendations
-
----
-
-## Operations Agent
-
-Evaluates:
-
-- Bed occupancy
-- Staff utilization
-- Physician utilization
-- OR utilization
-- Waiting time
-
-Produces:
-
-- Operational optimization strategy
-
----
-
-## Quality Agent
-
-Measures:
-
-- Patient Satisfaction
-- Infection Rate
-- Medication Errors
-- Falls
-- Quality Score
-
-Produces:
-
-- Quality improvement recommendations
-
----
-
-## Compliance Agent
-
-Reviews:
-
-- Compliance score
-- HIPAA violations
-- Audit findings
-- Regulatory risk
-
-Produces:
-
-- Compliance assessment
-- Governance recommendations
-
----
-
 # Technology Stack
 
-## Backend
-
-- Python 3.11+
-- FastAPI
-- AutoGen 0.7.5
-- Uvicorn
-- Loguru
-- Pydantic
-- MLflow
-- python-dotenv
-
----
-
-## Frontend
-
-- React 19
-- TypeScript
-- Vite
-- Axios
-- React Router
-- React Markdown
-- Remark GFM
+| Component | Technology |
+|------------|------------|
+| Language | Python 3.11+ |
+| API | FastAPI |
+| AI Framework | AutoGen 0.7.5 |
+| LLM | OpenAI / Azure OpenAI Compatible |
+| Logging | Loguru |
+| Validation | Pydantic |
+| Tracking | MLflow |
+| Server | Uvicorn |
 
 ---
 
-# Backend Installation
+# Installation
 
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <repository_url>
 
 cd Healthcare_Command_Center
 ```
@@ -249,15 +246,13 @@ cd Healthcare_Command_Center
 python -m venv .venv
 ```
 
-Activate
-
 Windows
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Linux / Mac
+Linux
 
 ```bash
 source .venv/bin/activate
@@ -273,43 +268,39 @@ pip install -r requirements.txt
 
 ---
 
-## Configure Environment
+# Environment Variables
 
-Create `.env`
+Create a `.env` file.
+
+Example:
 
 ```env
-OPENAI_API_KEY=your_api_key
+OPENAI_API_KEY=your_openai_key
 
-MODEL_NAME=gpt-4o
+OPENAI_MODEL=gpt-4.1
 
-API_BASE=https://api.openai.com/v1
+OPENAI_BASE_URL=https://api.openai.com/v1
+
+OPENAI_API_VERSION=
 ```
 
 ---
 
-## Run Backend
+# Run Application
 
 ```bash
-cd backend/healthcare-commmand-center-python-app
-
-python main.py
+uvicorn app.main:app --reload
 ```
 
 or
 
 ```bash
-uvicorn main:app --reload
+python app/main.py
 ```
 
 ---
 
-Backend runs at
-
-```
-http://localhost:8000
-```
-
----
+# API Documentation
 
 Swagger
 
@@ -317,51 +308,15 @@ Swagger
 http://localhost:8000/docs
 ```
 
----
-
-# Frontend Installation
-
-Navigate
-
-```bash
-cd ui/reactjs/healthcare-commmand-center-react-app
-```
-
-Install packages
-
-```bash
-npm install
-```
-
-Run
-
-```bash
-npm run dev
-```
-
-Application
+ReDoc
 
 ```
-http://localhost:5173
+http://localhost:8000/redoc
 ```
 
 ---
 
-Build Production
-
-```bash
-npm run build
-```
-
-Preview
-
-```bash
-npm run preview
-```
-
----
-
-# REST API
+# API Endpoint
 
 ## Execute Healthcare Command Center
 
@@ -373,159 +328,223 @@ npm run preview
 
 ---
 
-## Request
+# Sample Request
 
 ```json
 {
-  "hospital_id": "H001",
-  "hospital_name": "City Hospital",
+  "hospital_id": "HOSP-APOLLO-001",
+  "hospital_name": "Apollo Hospitals Hyderabad",
   "hospital_type": "Multi-Specialty",
-  "region": "South",
-  "report_timestamp": "2026-01-01T10:00:00",
-  "financial_metrics": {},
-  "clinical_metrics": {},
-  "operational_metrics": {},
-  "quality_metrics": {},
-  "compliance_metrics": {},
-  "governance_objectives": {}
-}
-```
-
----
-
-## Response
-
-```json
-{
-  "status": "success",
-  "message": "Healthcare governance analysis completed successfully",
-  "execution_time_seconds": 4.28,
-  "data": {
-    "... AI Generated Governance Report ..."
+  "region": "South India",
+  "report_timestamp": "2026-06-23T11:01:07Z",
+  "financial_metrics": {
+    "monthly_revenue": 25000000,
+    "operating_cost": 18500000,
+    "profit_margin": 26.0,
+    "accounts_receivable": 3200000,
+    "claim_denial_rate": 6.5,
+    "reimbursement_rate": 92.8
+  },
+  "clinical_metrics": {
+    "total_patients": 4500,
+    "admissions": 850,
+    "discharges": 790,
+    "mortality_rate": 1.8,
+    "readmission_rate": 12.4,
+    "average_length_of_stay": 5.6,
+    "emergency_visits": 420,
+    "icu_occupancy_rate": 88.5
+  },
+  "operational_metrics": {
+    "bed_occupancy_rate": 92.0,
+    "staff_utilization_rate": 87.0,
+    "physician_utilization_rate": 84.0,
+    "nurse_to_patient_ratio": 1.6,
+    "operating_room_utilization": 81.5,
+    "average_wait_time_minutes": 38
+  },
+  "quality_metrics": {
+    "patient_satisfaction_score": 89.2,
+    "infection_rate": 1.3,
+    "medication_error_rate": 0.4,
+    "falls_rate": 0.2,
+    "quality_score": 86.5
+  },
+  "compliance_metrics": {
+    "compliance_score": 91.5,
+    "hipaa_violations": 1,
+    "audit_findings": 3,
+    "unresolved_compliance_issues": 2,
+    "regulatory_risk_level": "Low"
+  },
+  "governance_objectives": {
+    "improve_profitability": true,
+    "reduce_readmissions": true,
+    "improve_quality_scores": true,
+    "improve_compliance": true,
+    "optimize_resources": true
+  },
+  "additional_context": {
+    "hospital_beds": 1200,
+    "employees": 5500
   }
 }
 ```
 
 ---
 
+# Response
+
+The API returns:
+
+- Executive Summary
+- Governance Dashboard
+- KPI Analysis
+- Risk Assessment
+- Compliance Alerts
+- Agent Findings
+- Predictive Insights
+- Strategic Recommendations
+- Board Recommendations
+- Prioritized Action Items
+
+---
+
+# Processing Flow
+
+```
+Client
+   │
+   ▼
+FastAPI Router
+   │
+   ▼
+Service Layer
+   │
+   ▼
+Implementation Layer
+   │
+   ▼
+Build AutoGen Agent Team
+   │
+   ▼
+Create Governance Prompt
+   │
+   ▼
+Execute Multi-Agent Discussion
+   │
+   ▼
+Aggregate Agent Responses
+   │
+   ▼
+Generate Executive Dashboard
+   │
+   ▼
+Return Structured Response
+```
+
+---
+
 # Logging
 
-Application logs are stored in
+Log files are stored under:
 
 ```
 logs/
 
-healthcare.log
-
 healthcare_command_center.log
-
+healthcare.log
 error.log
 ```
 
----
+Features:
 
-# Frontend Modules
-
-- Command Center Dashboard
-- Governance Report
-- Executive Summary
-- Agent Results
-- Execution Summary
-- Markdown Report Viewer
-- Status Indicators
-- Error Handling
-- Loading Components
+- Request Logging
+- Execution Time
+- Agent Execution
+- Exception Tracking
+- Audit Logs
 
 ---
 
-# AI Workflow
+# Key Governance KPIs
 
-```
-Hospital Metrics
+## Financial
 
-        │
+- Revenue
+- Profit Margin
+- Operating Cost
+- Claim Denial Rate
+- Accounts Receivable
 
-        ▼
+## Clinical
 
-FastAPI API
+- Mortality Rate
+- Readmission Rate
+- ICU Occupancy
+- Admissions
+- Length of Stay
 
-        │
+## Operational
 
-        ▼
+- Bed Occupancy
+- Workforce Utilization
+- OR Utilization
+- Wait Time
 
-Command Center Service
+## Quality
 
-        │
+- Patient Satisfaction
+- Infection Rate
+- Medication Errors
+- Falls
 
-        ▼
+## Compliance
 
-Healthcare Team
-
-        │
-
-        ▼
-
-Executive Agent
-
-Financial Agent
-
-Clinical Agent
-
-Operations Agent
-
-Quality Agent
-
-Compliance Agent
-
-        │
-
-        ▼
-
-Governance Report
-
-        │
-
-        ▼
-
-React Dashboard
-```
+- Compliance Score
+- HIPAA Violations
+- Audit Findings
+- Regulatory Risk
 
 ---
 
 # Future Enhancements
 
-- LangGraph Integration
-- CrewAI Support
-- Real-Time Monitoring
+- Real-Time Hospital Dashboard
+- Streamlit Executive Cockpit
+- Power BI Integration
+- HL7/FHIR Integration
 - Predictive Analytics
-- KPI Dashboards
-- Role-Based Access Control (RBAC)
+- Resource Forecasting
 - Multi-Hospital Benchmarking
-- PDF Report Generation
-- Azure OpenAI Support
+- Autonomous Workflow Execution
+- Agent Memory
+- Human-in-the-Loop Approval
+- Event-Driven Notifications
+- Azure OpenAI Integration
 - Kubernetes Deployment
-- Docker Support
-- CI/CD Pipelines
 
 ---
 
-# License
+# Requirements
 
-This project is intended for educational, research, and enterprise healthcare AI solution development.
+```
+fastapi
+uvicorn
+autogen==0.7.5
+autogen-agentchat==0.7.5
+autogen-ext==0.7.5
+openai
+python-dotenv
+loguru
+mlflow
+streamlit
+```
 
 ---
 
 # Author
 
-**Healthcare Command Center**
+**Healthcare AI Multi-Agent Framework**
 
-AI-Powered Multi-Agent Hospital Governance Platform
-
-Built using
-
-- FastAPI
-- AutoGen
-- React
-- TypeScript
-- OpenAI
-- Python
+Enterprise Autonomous Healthcare Governance Platform using **AutoGen 0.7.5**, **FastAPI**, and **Python**, designed to support hospital executives with AI-driven governance, operational intelligence, financial oversight, clinical analytics, quality management, and regulatory compliance.

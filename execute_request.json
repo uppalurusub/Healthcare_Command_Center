@@ -1,0 +1,83 @@
+{
+  "hospital_id": "HOSP-APOLLO-001",
+  "hospital_name": "Apollo Hospitals Hyderabad",
+  "hospital_type": "Multi-Specialty",
+  "region": "South India",
+  "report_timestamp": "2026-06-23T11:01:07.787Z",
+
+  "financial_metrics": {
+    "monthly_revenue": 25000000,
+    "operating_cost": 18500000,
+    "profit_margin": 26.0,
+    "accounts_receivable": 3200000,
+    "claim_denial_rate": 6.5,
+    "reimbursement_rate": 92.8
+  },
+
+  "clinical_metrics": {
+    "total_patients": 4500,
+    "admissions": 850,
+    "discharges": 790,
+    "mortality_rate": 1.8,
+    "readmission_rate": 12.4,
+    "average_length_of_stay": 5.6,
+    "emergency_visits": 420,
+    "icu_occupancy_rate": 88.5
+  },
+
+  "operational_metrics": {
+    "bed_occupancy_rate": 92.0,
+    "staff_utilization_rate": 87.0,
+    "physician_utilization_rate": 84.0,
+    "nurse_to_patient_ratio": 1.6,
+    "operating_room_utilization": 81.5,
+    "average_wait_time_minutes": 38
+  },
+
+  "quality_metrics": {
+    "patient_satisfaction_score": 89.2,
+    "infection_rate": 1.3,
+    "medication_error_rate": 0.4,
+    "falls_rate": 0.2,
+    "quality_score": 86.5
+  },
+
+  "compliance_metrics": {
+    "compliance_score": 91.5,
+    "hipaa_violations": 1,
+    "audit_findings": 3,
+    "unresolved_compliance_issues": 2,
+    "regulatory_risk_level": "Low"
+  },
+
+  "governance_objectives": {
+    "improve_profitability": true,
+    "reduce_readmissions": true,
+    "improve_quality_scores": true,
+    "improve_compliance": true,
+    "optimize_resources": true
+  },
+
+  "additional_context": {
+    "hospital_beds": 1200,
+    "employees": 5500,
+    "physicians": 750,
+    "nurses": 2200,
+    "accreditations": [
+      "NABH",
+      "JCI"
+    ],
+    "specialties": [
+      "Cardiology",
+      "Oncology",
+      "Neurology",
+      "Orthopedics",
+      "Transplant"
+    ],
+    "strategic_focus": [
+      "Digital Transformation",
+      "Population Health",
+      "Operational Excellence"
+    ]
+  }
+}

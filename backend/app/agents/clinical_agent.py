@@ -1,9 +1,8 @@
-from utils.logger import logger
 
 from autogen_agentchat.agents import AssistantAgent
 
-from config.llm_config import get_model_client
-
+from app.config.settings import settings
+logger = settings.get_logger()
 
 def get_clinical_agent() -> AssistantAgent:
     """
@@ -137,7 +136,7 @@ clinical governance recommendations.
 
         agent = AssistantAgent(
             name="ClinicalAgent",
-            model_client=get_model_client(),
+            model_client=settings.get_model_client(),
             system_message=system_prompt,
             description="""
             Chief Medical Officer responsible for

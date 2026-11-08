@@ -1,14 +1,15 @@
-from utils.logger import logger
+from app.config.settings import settings
+logger = settings.get_logger()
 
 from autogen_agentchat.teams import RoundRobinGroupChat
 from autogen_agentchat.conditions import MaxMessageTermination
 
-from agents.executive_agent import get_executive_agent
-from agents.financial_agent import get_financial_agent
-from agents.clinical_agent import get_clinical_agent
-from agents.operations_agent import get_operations_agent
-from agents.quality_agent import get_quality_agent
-from agents.compliance_agent import get_compliance_agent
+from app.agents.executive_agent import get_executive_agent
+from app.agents.financial_agent import get_financial_agent
+from app.agents.clinical_agent import get_clinical_agent
+from app.agents.operations_agent import get_operations_agent
+from app.agents.quality_agent import get_quality_agent
+from app.agents.compliance_agent import get_compliance_agent
 
 
 def build_healthcare_team() -> RoundRobinGroupChat:
